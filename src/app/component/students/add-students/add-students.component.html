@@ -1,0 +1,173 @@
+<div class="student-form">
+  <h2>Add New Student</h2>
+  <form [formGroup]="studentForm" (ngSubmit)="submitForm()">
+    <!-- Personal Information -->
+    <p-fieldset legend="Personal Information">
+      <div class="form-row">
+        <p-inputText
+          formControlName="firstName"
+          placeholder="First Name"
+        ></p-inputText>
+        <p-inputText
+          formControlName="middleName"
+          placeholder="Middle Name"
+        ></p-inputText>
+        <p-inputText
+          formControlName="lastName"
+          placeholder="Last Name"
+        ></p-inputText>
+      </div>
+      <div class="form-row">
+        <p-calendar
+          formControlName="dateOfBirth"
+          placeholder="Date of Birth"
+        ></p-calendar>
+        <p-select
+          formControlName="gender"
+          [options]="genders"
+          placeholder="Select Gender"
+        ></p-select>
+        <p-inputText
+          formControlName="nationality"
+          placeholder="Nationality"
+        ></p-inputText>
+      </div>
+    </p-fieldset>
+
+    <!-- Enrollment Information -->
+    <p-fieldset legend="Enrollment Details">
+      <div class="form-row">
+        <p-inputText
+          formControlName="studentId"
+          placeholder="Student ID"
+        ></p-inputText>
+        <p-inputText
+          formControlName="enrollmentNumber"
+          placeholder="Enrollment Number"
+        ></p-inputText>
+        <p-calendar
+          formControlName="admissionDate"
+          placeholder="Admission Date"
+        ></p-calendar>
+      </div>
+    </p-fieldset>
+
+    <!-- Contact Information -->
+    <p-fieldset legend="Contact Information">
+      <div class="form-row">
+        <p-inputText formControlName="email" placeholder="Email"></p-inputText>
+        <p-inputText
+          formControlName="phoneNumber"
+          placeholder="Phone Number"
+        ></p-inputText>
+      </div>
+      <div class="form-row">
+        <p-inputText
+          formControlName="parentName"
+          placeholder="Parent/Guardian Name"
+        ></p-inputText>
+        <p-inputText
+          formControlName="parentContact"
+          placeholder="Parent Contact"
+        ></p-inputText>
+      </div>
+      <p-textarea
+        formControlName="permanentAddress"
+        placeholder="Permanent Address"
+      ></p-textarea>
+      <p-textarea
+        formControlName="currentAddress"
+        placeholder="Current Address"
+      ></p-textarea>
+    </p-fieldset>
+
+    <!-- Academic Details -->
+    <p-fieldset legend="Academic Details">
+      <div class="form-row">
+        <p-inputText
+          formControlName="courseName"
+          placeholder="Course Name"
+        ></p-inputText>
+        <p-inputText
+          formControlName="department"
+          placeholder="Department"
+        ></p-inputText>
+        <p-inputText
+          formControlName="yearOfStudy"
+          placeholder="Year of Study"
+        ></p-inputText>
+      </div>
+      <div class="form-row">
+        <p-inputText
+          formControlName="section"
+          placeholder="Section"
+        ></p-inputText>
+        <p-inputText
+          formControlName="rollNumber"
+          placeholder="Roll Number"
+        ></p-inputText>
+      </div>
+      <p-inputText
+        formControlName="previousSchool"
+        placeholder="Previous School/College"
+      ></p-inputText>
+      <p-inputText
+        formControlName="lastExamPercentage"
+        placeholder="Last Exam Percentage"
+      ></p-inputText>
+    </p-fieldset>
+
+    <!-- Documents Upload -->
+    <p-fieldset legend="Upload Documents">
+      <p-fileUpload
+        mode="basic"
+        (onSelect)="onFileChange($event, 'uploadPhoto')"
+        chooseLabel="Upload Photo"
+      ></p-fileUpload>
+      <p-fileUpload
+        mode="basic"
+        (onSelect)="onFileChange($event, 'uploadIdProof')"
+        chooseLabel="Upload ID Proof"
+      ></p-fileUpload>
+      <p-fileUpload
+        mode="basic"
+        (onSelect)="onFileChange($event, 'uploadMarksheet')"
+        chooseLabel="Upload Marksheet"
+      ></p-fileUpload>
+    </p-fieldset>
+
+    <!-- Other Information -->
+    <p-fieldset legend="Other Information">
+      <p-select
+        formControlName="hostelRequired"
+        [options]="hostelOptions"
+        placeholder="Hostel Required?"
+      ></p-select>
+      <p-select
+        formControlName="scholarshipStatus"
+        [options]="scholarshipOptions"
+        placeholder="Scholarship Status?"
+      ></p-select>
+      <p-textarea
+        formControlName="medicalConditions"
+        placeholder="Any Medical Conditions?"
+      ></p-textarea>
+    </p-fieldset>
+
+    <!-- Submit & Reset -->
+    <div class="buttons">
+      <p-button
+        type="submit"
+        label="Submit"
+        icon="pi pi-check"
+        [disabled]="studentForm.invalid"
+      ></p-button>
+      <p-button
+        type="button"
+        label="Reset"
+        icon="pi pi-refresh"
+        (click)="resetForm()"
+      ></p-button>
+    </div>
+  </form>
+</div>

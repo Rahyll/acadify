@@ -1,13 +1,27 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { NavBarComponent } from './component/layout/nav-bar/nav-bar.component';
+import { SideBarComponent } from './component/layout/side-bar/side-bar.component';
+import { MainComponent } from './component/layout/main/main.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [NavBarComponent, SideBarComponent, MainComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'hdfc-mf-latest';
+  _isSideBarVisible!: boolean;
+  @Input()
+  get isSideBarVisible(): boolean {
+    return this._isSideBarVisible;
+  }
+  set isSideBarVisible(val: boolean) {
+    this._isSideBarVisible = val;
+  }
+
+  // @Output() visibilityChange = new EventEmitter<boolean>();
+  // handleSideBar(isVisible: boolean) {
+  //   this.isSideBarVisible = isVisible;
+  // }
 }

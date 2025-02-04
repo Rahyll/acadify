@@ -1,0 +1,8 @@
+::ng-deep .p-drawer-header {
+  //   justify-content: center !important;
+  @apply pb-1;
+}
+
+::ng-deep .p-menu {
+  @apply border-0;
+}

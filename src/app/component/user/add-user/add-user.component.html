@@ -1,0 +1,204 @@
+<div class="shadow-md p-3 sm:p-4 md:p-8 lg:px-20 bg-surface-0 w-full">
+  <form [formGroup]="userForm" (ngSubmit)="saveData()">
+    <div class="flex flex-col justify-start items-stretch flex-nowrap gap-8">
+      <div class="flex flex-col justify-start items-stretch flex-nowrap gap-4">
+        <span class="text-xl font-bold">Add User</span>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <app-form-field [label]="'Role'" for="role" [control]="role">
+            <p-select
+              id="role"
+              formControlName="role"
+              [options]="roles"
+              [fluid]="true"
+              [showClear]="true"
+            ></p-select>
+          </app-form-field>
+
+          <app-form-field
+            [label]="'Full Name'"
+            for="fullName"
+            [control]="fullName"
+          >
+            <input
+              pInputText
+              id="fullName"
+              formControlName="fullName"
+              autocomplete="off"
+            />
+          </app-form-field>
+
+          <app-form-field [label]="'Email'" for="email" [control]="email">
+            <input
+              pInputText
+              id="email"
+              formControlName="email"
+              autocomplete="off"
+            />
+          </app-form-field>
+
+          <app-form-field
+            [label]="'Phone'"
+            for="phoneNumber"
+            [control]="phoneNumber"
+          >
+            <p-inputmask
+              id="phoneNumber"
+              formControlName="phoneNumber"
+              mask="999-99-9999"
+              placeholder="999-99-9999"
+              autocomplete="off"
+            ></p-inputmask>
+          </app-form-field>
+
+          @if(this.role.value === 'student') {
+          <app-form-field
+            [label]="'Enrollment Number'"
+            for="enrollmentNumber"
+            [control]="enrollmentNumber"
+          >
+            <input
+              pInputText
+              id="enrollmentNumber"
+              formControlName="enrollmentNumber"
+              autocomplete="off"
+            />
+          </app-form-field>
+
+          <app-form-field
+            [label]="'Course'"
+            for="courseClass"
+            [control]="courseClass"
+          >
+            <p-select
+              id="courseClass"
+              formControlName="courseClass"
+              [options]="courses"
+              [fluid]="true"
+              [showClear]="true"
+            ></p-select>
+          </app-form-field>
+
+          <app-form-field
+            [label]="'Department'"
+            for="department"
+            [control]="department"
+          >
+            <p-select
+              id="department"
+              formControlName="department"
+              [options]="departments"
+              [fluid]="true"
+              [showClear]="true"
+            ></p-select>
+          </app-form-field>
+          } @if(this.role.value === 'faculty') {
+          <app-form-field
+            [label]="'Faculty ID'"
+            for="facultyId"
+            [control]="facultyId"
+          >
+            <input
+              pInputText
+              id="facultyId"
+              formControlName="facultyId"
+              autocomplete="off"
+            />
+          </app-form-field>
+
+          <app-form-field
+            [label]="'Department'"
+            for="department"
+            [control]="department"
+          >
+            <p-select
+              id="department"
+              formControlName="department"
+              [options]="departments"
+              [fluid]="true"
+              [showClear]="true"
+            ></p-select>
+          </app-form-field>
+
+          <app-form-field
+            [label]="'Subjects Assigned'"
+            for="subjectsAssigned"
+            [control]="subjectsAssigned"
+          >
+            <p-multiselect
+              [options]="subjects"
+              formControlName="subjectsAssigned"
+              placeholder="Select Subjects"
+              display="chip"
+              [fluid]="true"
+              [showClear]="true"
+            />
+          </app-form-field>
+          } @if(this.role.value === 'parent') {
+          <app-form-field
+            [label]="'Child’s Enrollment Number'"
+            for="childEnrollmentNumber"
+            [control]="childEnrollmentNumber"
+          >
+            <input
+              pInputText
+              id="childEnrollmentNumber"
+              formControlName="childEnrollmentNumber"
+              autocomplete="off"
+            />
+          </app-form-field>
+
+          <app-form-field
+            [label]="'Relationship to Child'"
+            for="relationshipToChild"
+            [control]="relationshipToChild"
+          >
+            <p-select
+              id="relationshipToChild"
+              formControlName="relationshipToChild"
+              [options]="relationships"
+              [fluid]="true"
+              [showClear]="true"
+            ></p-select>
+          </app-form-field>
+          } @if(this.role.value === 'accountant') {
+          <app-form-field
+            [label]="'Accountant ID'"
+            for="accountantId"
+            [control]="accountantId"
+          >
+            <input
+              pInputText
+              id="accountantId"
+              formControlName="accountantId"
+              autocomplete="off"
+            />
+          </app-form-field>
+          } @if(this.role.value === 'librarian') {
+          <app-form-field
+            [label]="'Librarian ID'"
+            for="librarianId"
+            [control]="librarianId"
+          >
+            <input
+              pInputText
+              id="librarianId"
+              formControlName="librarianId"
+              autocomplete="off"
+            />
+          </app-form-field>
+          }
+        </div>
+      </div>
+
+      <div class="flex flex-row justify-start items-center gap-4">
+        <p-button
+          type="button"
+          label="List Page"
+          severity="secondary"
+          routerLink="/users"
+        />
+        <p-button label="Save" type="submit" />
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<div
+  class="flex flex-row justify-between items-center flex-nowrap gap-4 bg-white shadow-md p-2"
+>
+  <p-button
+    icon="pi pi-bars"
+    [rounded]="true"
+    severity="secondary"
+    (click)="handleSideBar()"
+    size="large"
+    variant="text"
+  />
+  <div
+    class="flex flex-row justify-end items-center flex-nowrap gap-6 bg-white"
+  >
+    <p-overlaybadge value="2" badgeSize="small" class="self-end">
+      <i
+        class="pi pi-bell"
+        severity="secondary"
+        style="color: var(--p-button-text-secondary-color); font-size: 1.4rem"
+      ></i>
+    </p-overlaybadge>
+    <p-avatar
+      icon="pi pi-user"
+      class="mr-2"
+      [style]="{ backgroundColor: '#ece9fc', color: '#2a1261' }"
+      shape="circle"
+    />
+  </div>
+</div>

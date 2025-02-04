@@ -1,0 +1,5 @@
+@if(addFormVisible){
+<app-add-user></app-add-user>
+} @else {
+<app-list-user (toggleAddForm)="handleAddForm($event)"></app-list-user>
+}
