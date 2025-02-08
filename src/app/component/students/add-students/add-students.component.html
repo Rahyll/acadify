@@ -4,155 +4,365 @@
     <!-- Personal Information -->
     <p-fieldset legend="Personal Information">
       <div class="form-row">
-        <p-inputText
-          formControlName="firstName"
-          placeholder="First Name"
-        ></p-inputText>
-        <p-inputText
-          formControlName="middleName"
-          placeholder="Middle Name"
-        ></p-inputText>
-        <p-inputText
-          formControlName="lastName"
-          placeholder="Last Name"
-        ></p-inputText>
+        <app-form-field
+          [label]="'First Name'"
+          for="firstName"
+          [control]="firstName"
+        >
+          <input
+            pInputText
+            id="firstName"
+            formControlName="firstName"
+            autocomplete="off"
+          />
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Middle Name'"
+          for="middleName"
+          [control]="middleName"
+        >
+          <input
+            pInputText
+            id="middleName"
+            formControlName="middleName"
+            autocomplete="off"
+          />
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Last Name'"
+          for="lastName"
+          [control]="lastName"
+        >
+          <input
+            pInputText
+            id="lastName"
+            formControlName="lastName"
+            autocomplete="off"
+          />
+        </app-form-field>
       </div>
+
       <div class="form-row">
-        <p-calendar
-          formControlName="dateOfBirth"
-          placeholder="Date of Birth"
-        ></p-calendar>
-        <p-select
-          formControlName="gender"
-          [options]="genders"
-          placeholder="Select Gender"
-        ></p-select>
-        <p-inputText
-          formControlName="nationality"
-          placeholder="Nationality"
-        ></p-inputText>
+        <app-form-field
+          [label]="'Date of Birth'"
+          for="dateOfBirth"
+          [control]="dateOfBirth"
+        >
+          <p-datepicker
+            id="dateOfBirth"
+            formControlName="dateOfBirth"
+            placeholder="Date of Birth"
+          ></p-datepicker>
+        </app-form-field>
+
+        <app-form-field [label]="'Gender'" for="gender" [control]="gender">
+          <p-select
+            id="gender"
+            formControlName="gender"
+            [options]="genders"
+            [fluid]="true"
+            [showClear]="true"
+          ></p-select>
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Nationality'"
+          for="nationality"
+          [control]="nationality"
+        >
+          <input
+            pInputText
+            id="nationality"
+            formControlName="nationality"
+            autocomplete="off"
+          />
+        </app-form-field>
       </div>
     </p-fieldset>
 
     <!-- Enrollment Information -->
     <p-fieldset legend="Enrollment Details">
       <div class="form-row">
-        <p-inputText
-          formControlName="studentId"
-          placeholder="Student ID"
-        ></p-inputText>
-        <p-inputText
-          formControlName="enrollmentNumber"
-          placeholder="Enrollment Number"
-        ></p-inputText>
-        <p-calendar
-          formControlName="admissionDate"
-          placeholder="Admission Date"
-        ></p-calendar>
+        <app-form-field
+          [label]="'Student ID'"
+          for="studentId"
+          [control]="studentId"
+        >
+          <input
+            pInputText
+            id="studentId"
+            formControlName="studentId"
+            autocomplete="off"
+          />
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Enrollment Number'"
+          for="enrollmentNumber"
+          [control]="enrollmentNumber"
+        >
+          <input
+            pInputText
+            id="enrollmentNumber"
+            formControlName="enrollmentNumber"
+            autocomplete="off"
+          />
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Admission Date'"
+          for="admissionDate"
+          [control]="admissionDate"
+        >
+          <p-datepicker
+            id="admissionDate"
+            formControlName="admissionDate"
+            placeholder="Admission Date"
+          ></p-datepicker>
+        </app-form-field>
       </div>
     </p-fieldset>
 
     <!-- Contact Information -->
     <p-fieldset legend="Contact Information">
       <div class="form-row">
-        <p-inputText formControlName="email" placeholder="Email"></p-inputText>
-        <p-inputText
-          formControlName="phoneNumber"
-          placeholder="Phone Number"
-        ></p-inputText>
+        <app-form-field [label]="'Email'" for="email" [control]="email">
+          <input
+            pInputText
+            id="email"
+            formControlName="email"
+            autocomplete="off"
+          />
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Phone Number'"
+          for="phoneNumber"
+          [control]="phoneNumber"
+        >
+          <p-inputmask
+            id="phoneNumber"
+            formControlName="phoneNumber"
+            mask="999-99-9999"
+            placeholder="999-99-9999"
+            autocomplete="off"
+          ></p-inputmask>
+        </app-form-field>
       </div>
+
       <div class="form-row">
-        <p-inputText
-          formControlName="parentName"
-          placeholder="Parent/Guardian Name"
-        ></p-inputText>
-        <p-inputText
-          formControlName="parentContact"
-          placeholder="Parent Contact"
-        ></p-inputText>
+        <app-form-field
+          [label]="'Parent/Guardian Name'"
+          for="parentName"
+          [control]="parentName"
+        >
+          <input
+            pInputText
+            id="parentName"
+            formControlName="parentName"
+            autocomplete="off"
+          />
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Parent Contact'"
+          for="parentContact"
+          [control]="parentContact"
+        >
+          <input
+            pInputText
+            id="parentContact"
+            formControlName="parentContact"
+            autocomplete="off"
+          />
+        </app-form-field>
       </div>
-      <p-textarea
-        formControlName="permanentAddress"
-        placeholder="Permanent Address"
-      ></p-textarea>
-      <p-textarea
-        formControlName="currentAddress"
-        placeholder="Current Address"
-      ></p-textarea>
+
+      <app-form-field
+        [label]="'Permanent Address'"
+        for="permanentAddress"
+        [control]="permanentAddress"
+      >
+        <textarea
+          pTextarea
+          id="permanentAddress"
+          formControlName="permanentAddress"
+          placeholder="Permanent Address"
+        ></textarea>
+      </app-form-field>
+
+      <app-form-field
+        [label]="'Current Address'"
+        for="currentAddress"
+        [control]="currentAddress"
+      >
+        <textarea
+          pTextarea
+          id="currentAddress"
+          formControlName="currentAddress"
+          placeholder="Current Address"
+        ></textarea>
+      </app-form-field>
     </p-fieldset>
 
     <!-- Academic Details -->
     <p-fieldset legend="Academic Details">
       <div class="form-row">
-        <p-inputText
-          formControlName="courseName"
-          placeholder="Course Name"
-        ></p-inputText>
-        <p-inputText
-          formControlName="department"
-          placeholder="Department"
-        ></p-inputText>
-        <p-inputText
-          formControlName="yearOfStudy"
-          placeholder="Year of Study"
-        ></p-inputText>
+        <app-form-field
+          [label]="'Course'"
+          for="courseName"
+          [control]="courseName"
+        >
+          <p-select
+            id="courseName"
+            formControlName="courseName"
+            [options]="courses"
+            [fluid]="true"
+            [showClear]="true"
+          ></p-select>
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Department'"
+          for="department"
+          [control]="department"
+        >
+          <p-select
+            id="department"
+            formControlName="department"
+            [options]="departments"
+            [fluid]="true"
+            [showClear]="true"
+          ></p-select>
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Year of Study'"
+          for="yearOfStudy"
+          [control]="yearOfStudy"
+        >
+          <input
+            pInputText
+            id="yearOfStudy"
+            formControlName="yearOfStudy"
+            autocomplete="off"
+          />
+        </app-form-field>
       </div>
+
       <div class="form-row">
-        <p-inputText
-          formControlName="section"
-          placeholder="Section"
-        ></p-inputText>
-        <p-inputText
-          formControlName="rollNumber"
-          placeholder="Roll Number"
-        ></p-inputText>
+        <app-form-field [label]="'Section'" for="section" [control]="section">
+          <input
+            pInputText
+            id="section"
+            formControlName="section"
+            autocomplete="off"
+          />
+        </app-form-field>
+
+        <app-form-field
+          [label]="'Roll Number'"
+          for="rollNumber"
+          [control]="rollNumber"
+        >
+          <input
+            pInputText
+            id="rollNumber"
+            formControlName="rollNumber"
+            autocomplete="off"
+          />
+        </app-form-field>
       </div>
-      <p-inputText
-        formControlName="previousSchool"
-        placeholder="Previous School/College"
-      ></p-inputText>
-      <p-inputText
-        formControlName="lastExamPercentage"
-        placeholder="Last Exam Percentage"
-      ></p-inputText>
+
+      <app-form-field
+        [label]="'Previous School/College'"
+        for="previousSchool"
+        [control]="previousSchool"
+      >
+        <input
+          pInputText
+          id="previousSchool"
+          formControlName="previousSchool"
+          autocomplete="off"
+        />
+      </app-form-field>
+
+      <app-form-field
+        [label]="'Last Exam Percentage'"
+        for="lastExamPercentage"
+        [control]="lastExamPercentage"
+      >
+        <input
+          pInputText
+          id="lastExamPercentage"
+          formControlName="lastExamPercentage"
+          autocomplete="off"
+        />
+      </app-form-field>
     </p-fieldset>
 
-    <!-- Documents Upload -->
     <p-fieldset legend="Upload Documents">
-      <p-fileUpload
+      <p-fileupload
         mode="basic"
-        (onSelect)="onFileChange($event, 'uploadPhoto')"
+        (onUpload)="onFileChange($event, 'uploadPhoto')"
         chooseLabel="Upload Photo"
-      ></p-fileUpload>
-      <p-fileUpload
+      />
+      <p-fileupload
         mode="basic"
-        (onSelect)="onFileChange($event, 'uploadIdProof')"
+        (onUpload)="onFileChange($event, 'uploadIdProof')"
         chooseLabel="Upload ID Proof"
-      ></p-fileUpload>
-      <p-fileUpload
+      />
+      <p-fileupload
         mode="basic"
-        (onSelect)="onFileChange($event, 'uploadMarksheet')"
+        (onUpload)="onFileChange($event, 'uploadMarksheet')"
         chooseLabel="Upload Marksheet"
-      ></p-fileUpload>
+      />
     </p-fieldset>
 
-    <!-- Other Information -->
-    <p-fieldset legend="Other Information">
-      <p-select
-        formControlName="hostelRequired"
-        [options]="hostelOptions"
-        placeholder="Hostel Required?"
-      ></p-select>
-      <p-select
-        formControlName="scholarshipStatus"
-        [options]="scholarshipOptions"
-        placeholder="Scholarship Status?"
-      ></p-select>
-      <p-textarea
-        formControlName="medicalConditions"
-        placeholder="Any Medical Conditions?"
-      ></p-textarea>
-    </p-fieldset>
+    <!-- <p-fieldset legend="Other Information">
+      <app-form-field
+        [label]="'Hostel Required?'"
+        for="hostelRequired"
+        [control]="hostelRequired"
+      >
+        <p-select
+          id="hostelRequired"
+          formControlName="hostelRequired"
+          [options]="hostelOptions"
+          [fluid]="true"
+          [showClear]="true"
+        ></p-select>
+      </app-form-field>
+
+      <app-form-field
+        [label]="'Scholarship Status?'"
+        for="scholarshipStatus"
+        [control]="scholarshipStatus"
+      >
+        <p-select
+          id="scholarshipStatus"
+          formControlName="scholarshipStatus"
+          [options]="scholarshipOptions"
+          [fluid]="true"
+          [showClear]="true"
+        ></p-select>
+      </app-form-field>
+
+      <app-form-field
+        [label]="'Any Medical Conditions?'"
+        for="medicalConditions"
+        [control]="medicalConditions"
+      >
+        <textarea
+          pTextarea
+          id="medicalConditions"
+          formControlName="medicalConditions"
+          placeholder="Any Medical Conditions?"
+        ></textarea>
+      </app-form-field>
+    </p-fieldset> -->
 
     <!-- Submit & Reset -->
     <div class="buttons">

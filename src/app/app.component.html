@@ -1,7 +1,12 @@
 <app-side-bar [(visible)]="isSideBarVisible"></app-side-bar>
-<div
-  class="m-1 sm:my-3 sm:mx-2 md:mx-3 flex flex-col justify-start items-stretch flex-nowrap gap-4"
->
-  <app-nav-bar [(isSideBarVisible)]="isSideBarVisible"></app-nav-bar>
-  <app-main></app-main>
+<div class="relative">
+  <app-nav-bar
+    [(isSideBarVisible)]="isSideBarVisible"
+    class="fixed top-0 w-full z-50"
+  ></app-nav-bar>
+  <div
+    class="mt-20 flex flex-col justify-start items-stretch flex-nowrap gap-4 relative"
+  >
+    <app-main class=""></app-main>
+  </div>
 </div>

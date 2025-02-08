@@ -1,15 +1,17 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { DatePickerModule } from 'primeng/datepicker';
-import { SelectModule } from 'primeng/select';
+import { DatePicker } from 'primeng/datepicker';
+import { Select } from 'primeng/select';
+import { InputMask } from 'primeng/inputmask';
 import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
-import { FileUploadModule } from 'primeng/fileupload';
-import { CheckboxModule } from 'primeng/checkbox';
-import { RadioButtonModule } from 'primeng/radiobutton';
+import { FileUpload } from 'primeng/fileupload';
+import { Checkbox } from 'primeng/checkbox';
+import { RadioButton } from 'primeng/radiobutton';
 import { Fieldset } from 'primeng/fieldset';
+import { FormFieldComponent } from '../../shared/form-field/form-field.component';
 
 @Component({
   selector: 'app-add-students',
@@ -17,14 +19,16 @@ import { Fieldset } from 'primeng/fieldset';
   imports: [
     ReactiveFormsModule,
     InputTextModule,
-    DatePickerModule,
-    SelectModule,
-    TextareaModule,
+    Select,
     ButtonModule,
-    FileUploadModule,
-    CheckboxModule,
-    RadioButtonModule,
+    FormFieldComponent,
     Fieldset,
+    DatePicker,
+    InputMask,
+    TextareaModule,
+    FileUpload,
+    // Checkbox,
+    // RadioButton,
   ],
   templateUrl: './add-students.component.html',
   styleUrl: './add-students.component.scss',
@@ -65,6 +69,92 @@ export class AddStudentsComponent {
     medicalConditions: [''],
   });
 
+  // Getters for form controls
+  get firstName() {
+    return this.studentForm.get('firstName') as FormControl;
+  }
+  get middleName() {
+    return this.studentForm.get('middleName') as FormControl;
+  }
+  get lastName() {
+    return this.studentForm.get('lastName') as FormControl;
+  }
+  get dateOfBirth() {
+    return this.studentForm.get('dateOfBirth') as FormControl;
+  }
+  get gender() {
+    return this.studentForm.get('gender') as FormControl;
+  }
+  get nationality() {
+    return this.studentForm.get('nationality') as FormControl;
+  }
+  get studentId() {
+    return this.studentForm.get('studentId') as FormControl;
+  }
+  get enrollmentNumber() {
+    return this.studentForm.get('enrollmentNumber') as FormControl;
+  }
+  get admissionDate() {
+    return this.studentForm.get('admissionDate') as FormControl;
+  }
+  get email() {
+    return this.studentForm.get('email') as FormControl;
+  }
+  get phoneNumber() {
+    return this.studentForm.get('phoneNumber') as FormControl;
+  }
+  get parentName() {
+    return this.studentForm.get('parentName') as FormControl;
+  }
+  get parentContact() {
+    return this.studentForm.get('parentContact') as FormControl;
+  }
+  get permanentAddress() {
+    return this.studentForm.get('permanentAddress') as FormControl;
+  }
+  get currentAddress() {
+    return this.studentForm.get('currentAddress') as FormControl;
+  }
+  get courseName() {
+    return this.studentForm.get('courseName') as FormControl;
+  }
+  get department() {
+    return this.studentForm.get('department') as FormControl;
+  }
+  get yearOfStudy() {
+    return this.studentForm.get('yearOfStudy') as FormControl;
+  }
+  get section() {
+    return this.studentForm.get('section') as FormControl;
+  }
+  get rollNumber() {
+    return this.studentForm.get('rollNumber') as FormControl;
+  }
+  get previousSchool() {
+    return this.studentForm.get('previousSchool') as FormControl;
+  }
+  get lastExamPercentage() {
+    return this.studentForm.get('lastExamPercentage') as FormControl;
+  }
+  get uploadPhoto() {
+    return this.studentForm.get('uploadPhoto') as FormControl;
+  }
+  get uploadIdProof() {
+    return this.studentForm.get('uploadIdProof') as FormControl;
+  }
+  get uploadMarksheet() {
+    return this.studentForm.get('uploadMarksheet') as FormControl;
+  }
+  get hostelRequired() {
+    return this.studentForm.get('hostelRequired') as FormControl;
+  }
+  get scholarshipStatus() {
+    return this.studentForm.get('scholarshipStatus') as FormControl;
+  }
+  get medicalConditions() {
+    return this.studentForm.get('medicalConditions') as FormControl;
+  }
+
   genders = [
     { name: 'Male', value: 'Male' },
     { name: 'Female', value: 'Female' },
@@ -79,6 +169,19 @@ export class AddStudentsComponent {
   scholarshipOptions = [
     { name: 'Yes', value: 'Yes' },
     { name: 'No', value: 'No' },
+  ];
+
+  courses = [
+    { label: 'B.Sc', value: 'bsc' },
+    { label: 'M.Sc', value: 'msc' },
+    { label: 'Ph.D', value: 'phd' },
+  ];
+
+  departments = [
+    { label: 'Computer Science', value: 'computer_science' },
+    { label: 'Mathematics', value: 'mathematics' },
+    { label: 'Physics', value: 'physics' },
+    { label: 'Biology', value: 'biology' },
   ];
 
   onFileChange(event: any, controlName: string) {

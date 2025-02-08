@@ -2,7 +2,7 @@
   <ng-template #header>
     <app-logo />
   </ng-template>
-  <p-menu [model]="items">
+  <p-menu [model]="items" *ngIf="visible">
     <ng-template #item let-item>
       <ng-container *ngIf="item.route; else elseBlock">
         <a [routerLink]="item.route" class="p-menu-item-link">
@@ -19,5 +19,3 @@
     </ng-template>
   </p-menu>
 </p-drawer>
-<!-- <div class="card flex justify-center">
-</div> -->
