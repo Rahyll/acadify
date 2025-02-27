@@ -245,8 +245,6 @@ export class EditUserComponent {
     if (changes['formInitialData'] && this.formInitialData) {
       this.updateRoleSpecificFields(this.formInitialData.role);
       this.userForm.patchValue(this.formInitialData);
-
-      console.log('EDIT FORM::::::::::::>', this.userForm);
     }
   }
 }

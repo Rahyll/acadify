@@ -1,12 +1,20 @@
-<app-side-bar [(visible)]="isSideBarVisible"></app-side-bar>
-<div class="relative">
-  <app-nav-bar
-    [(isSideBarVisible)]="isSideBarVisible"
-    class="fixed top-0 w-full z-50"
-  ></app-nav-bar>
-  <div
-    class="mt-20 flex flex-col justify-start items-stretch flex-nowrap gap-4 relative"
-  >
-    <app-main class=""></app-main>
-  </div>
+<!-- Parent Component -->
+<app-nav-bar
+  class="fixed top-0 right-0 w-full z-50 h-[50px]"
+  [(isSideBarVisible)]="isSideBarVisible"
+></app-nav-bar>
+<div class="mt-[50px] relative w-full">
+  <!-- Sidebar with conditional positioning -->
+
+  <app-side-bar
+    [@slideInOut]="isSideBarVisible ? 'visible' : 'hidden'"
+    class="fixed h-screen z-30 md:w-[256px]"
+    [(visible)]="isSideBarVisible"
+  ></app-side-bar>
+
+  <!-- Main Content -->
+  <app-main
+    [isSideBarVisible]="isSideBarVisible"
+    (closeSidebar)="isSideBarVisible = false"
+  ></app-main>
 </div>

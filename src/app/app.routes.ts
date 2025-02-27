@@ -4,6 +4,8 @@ import { AddUserComponent } from './component/user/add-user/add-user.component';
 import { AdminDashboardComponent } from './component/dashboard/admin/admin-dashboard.component';
 import { AddStudentsComponent } from './component/students/add-students/add-students.component';
 import { ListStudentComponent } from './component/students/list-student/list-student.component';
+import { CatalogDashboardComponent } from './component/dashboard/library/catalog-dashboard/catalog-dashboard.component';
+import { BookDetailComponent } from './component/book/book-detail/book-detail.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +27,13 @@ export const routes: Routes = [
   {
     path: 'add-student',
     component: AddStudentsComponent,
+  },
+  {
+    path: 'books',
+    component: CatalogDashboardComponent,
+  },
+  {
+    path: 'catalog/:isbnId:',
+    component: BookDetailComponent,
   },
 ];

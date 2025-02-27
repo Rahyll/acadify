@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<div class="relative">
+  <div
+    *ngIf="isSideBarVisible"
+    class="fixed inset-0 bg-black z-20 md:hidden"
+    [@fadeInOut]="isSideBarVisible ? 'visible' : 'hidden'"
+    (click)="closeSidebar.emit()"
+  ></div>
+
+  <div
+    class="inline-block w-full p-5 z-10 relative"
+    [@slideMain]="
+      isMdScreen ? (isSideBarVisible ? 'contract' : 'expand') : null
+    "
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div>

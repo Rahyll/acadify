@@ -1,21 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DrawerModule } from 'primeng/drawer';
 import { ButtonModule } from 'primeng/button';
-import { LogoComponent } from '../logo/logo.component';
 import { RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { Menu } from 'primeng/menu';
+import { slideInOut } from '../../../animation';
 @Component({
   selector: 'app-side-bar',
   standalone: true,
-  imports: [
-    DrawerModule,
-    ButtonModule,
-    LogoComponent,
-    Menu,
-    RouterModule,
-    NgIf,
-  ],
+  imports: [DrawerModule, ButtonModule, Menu, RouterModule, NgIf],
+  animations: [slideInOut],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.scss',
 })
@@ -35,6 +29,7 @@ export class SideBarComponent {
   items = [
     {
       label: 'Manage Users',
+      icon: 'pi pi-users',
       items: [
         {
           label: 'Add User',
@@ -48,6 +43,7 @@ export class SideBarComponent {
     },
     {
       label: 'Student Management',
+      icon: 'pi pi-id-card',
       items: [
         {
           label: 'Add New Student',
@@ -61,6 +57,7 @@ export class SideBarComponent {
     },
     {
       label: 'Course Management',
+      icon: 'pi  pi-graduation-cap',
       items: [
         {
           label: 'Add Course',
@@ -71,6 +68,11 @@ export class SideBarComponent {
           route: '',
         },
       ],
+    },
+    {
+      label: 'Book Management',
+      icon: 'pi pi-book',
+      items: [{ label: 'View Books', route: '/books' }, { label: 'Add Book' }],
     },
     // {
     //   label: 'Student Management',

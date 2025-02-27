@@ -6,3 +6,7 @@
 ::ng-deep .p-menu {
   @apply border-0;
 }
+.active {
+  @apply font-semibold;
+  background-color: var(--p-surface-100);
+}

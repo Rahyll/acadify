@@ -82,10 +82,15 @@
   </p-table>
 </div>
 
-<p-toast />
-<p-confirmdialog styleClass="!rounded-none" />
+<p-toast baseZIndex="100" />
+<p-confirmdialog styleClass="!rounded-none" appendTo="body" />
 
-<p-dialog [(visible)]="visible" styleClass="!rounded-none" [modal]="true">
+<p-dialog
+  [(visible)]="visible"
+  styleClass="!rounded-none"
+  [modal]="true"
+  appendTo="body"
+>
   <ng-template #headless>
     <app-edit-user
       (close)="closeDialog()"

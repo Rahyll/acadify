@@ -1,11 +1,23 @@
-<p-drawer [(visible)]="visible" styleClass="w-xs">
+<!-- <p-drawer [(visible)]="visible" styleClass="w-xs">
   <ng-template #header>
     <app-logo />
   </ng-template>
-  <p-menu [model]="items" *ngIf="visible">
+</p-drawer> -->
+<div class="h-full flex">
+  <p-menu [model]="items" styleClass="w-[256px] h-full rounded-none bg-white">
+    <ng-template #submenuheader let-item>
+      <div class="flex gap-2 text-primary font-bold items-center">
+        <span [class]="item.icon" style="font-size: 1.2rem"></span>
+        <span>{{ item.label }}</span>
+      </div>
+    </ng-template>
     <ng-template #item let-item>
       <ng-container *ngIf="item.route; else elseBlock">
-        <a [routerLink]="item.route" class="p-menu-item-link">
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          class="p-menu-item-link"
+        >
           <span [class]="item.icon"></span>
           <span class="ml-2">{{ item.label }}</span>
         </a>
@@ -18,4 +30,4 @@
       </ng-template>
     </ng-template>
   </p-menu>
-</p-drawer>
+</div>
